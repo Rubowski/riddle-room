@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Riddle Room Game</title>
+  <link rel="stylesheet" href="style.css" />
+  <audio id="soundCorrect" src="sounds/correct.mp3" preload="auto"></audio>
+  <audio id="soundWrong" src="sounds/wrong.mp3" preload="auto"></audio>
+  <audio id="soundWin" src="sounds/win.mp3" preload="auto"></audio>
+  <audio id="bgMusic" src="sounds/bg-music.mp3" loop preload="auto"></audio>
+</head>
+<body>
+
+  <div class="background">
+    <div class="particles"></div>
+    </div>
+
+  <div id="titleScreen" class="title-screen">
+    <h1 class="game-title">Mystery of the Four Rooms</h1>
+    <p class="game-subtitle">Solve puzzles. Collect items. Escape.</p>
+    <button id="startGameBtn" class="start-button">Start Game</button>
+  </div>
+  
+  <div class="game-container" style="display: none;">
+    <h1>Riddle Room</h1>
+    <div id="timer" style="font-size: 18px; font-weight: bold; text-align: center; margin-top: 20px;">
+    Time: <span id="timeElapsed">0</span> seconds
+    </div> 
+  
+    <div id="musicToggleContainer" style="text-align: center; margin-top: 20px;">
+      <button id="toggleMusic" style="padding: 8px 14px; border-radius: 6px;">🔈 Music: On</button>
+      <br />
+      <label for="volumeSlider" style="font-size: 14px;">Volume:</label>
+      <input type="range" id="volumeSlider" min="0" max="100" value="30" style="width: 150px;"/>
+    </div>
+
+    <div id="game">
+      <div class="rooms">
+        <div class="room" data-room="1">Room 1</div>
+        <div class="room" data-room="2">Room 2</div>
+        <div class="room" data-room="3">Room 3</div>
+        <div class="room" data-room="4">Room 4</div>
+      </div>
+
+      <div class="inventory" style="margin-top: 40px; text-align: center;">
+        <h2>Inventory</h2>
+        <div class="slots" style="display: flex;">
+          <div class="slot" data-slot="1"></div>
+          <div class="slot" data-slot="2"></div>
+          <div class="slot" data-slot="3"></div>
+          <div class="slot" data-slot="4"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+<!-- Modal -->
+  <div id="modal" class="modal hidden">
+    <div class="modal-content">
+      <span id="closeModal" class="close-button">&times;</span>
+      <h2 id="roomTitle">Room</h2>
+      <p id="riddleText"></p>
+      <div id="choices"></div>
+      <div id="message" style="margin-top: 15px; color: #2a7a2a; font-weight: bold;"></div>
+    </div>
+  </div>
+  
+  <div id="winOverlay" class="hidden">
+    <p>🎉 Congratulations! You won the game! 🎉</p>
+    <button id="restartButton">Play Again</button>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
